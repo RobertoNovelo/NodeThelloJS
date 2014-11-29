@@ -2,7 +2,15 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/public/stylesheets/othello.css' />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link rel="stylesheet" href="/public/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/othello.css">
+
   </head>
   <body>
     <h1><%= title %></h1>
@@ -74,6 +82,13 @@
 	    <div class="board-cell board-8-7"><div data-table-position="8-7" class="empty"></div></div>
 	    <div class="board-cell board-8-8"><div data-table-position="8-8" class="empty"></div></div>
 	</div>
+
+
+    <script src="/public/javascripts/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/javascripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/javascripts/othello-board.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/javascripts/othello-ai.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/javascripts/othello-game.js" type="text/javascript" charset="utf-8"></script>
 
   </body>
 </html>
