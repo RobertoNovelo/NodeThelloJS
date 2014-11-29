@@ -10,85 +10,126 @@ a {
 #board
 {
 	position: relative;
-	width: 70%;
+	width: 70vh;
+	height: 70vh;
 	-webkit-box-align:center;
 	-webkit-box-pack:center;
 	display:-webkit-box;
+	background: green;
+}
+
+.board-cell
+{
+	box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box; 
+	border:1px solid white;
 }
 
 .empty
 {
-	background: green; 
-	box-sizing:border-box; 
-	-moz-box-sizing:border-box; 
-	-webkit-box-sizing:border-box; 
-	border:1px solid white
+	height: 100%;
+	width: 100%;
+	cursor: not-allowed;
 }
 
-.1-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.1-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.2-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.3-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.4-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.5-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.6-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.7-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-1{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-2{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-3{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-4{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-5{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-6{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-7{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
-.8-8{ position:absolute; top: 0%; left: 0%; width: 12.5%; height: 12.5%;}
+.white
+{
+	height: 100%;
+	width: 100%;
+	background: white;
+   	-moz-border-radius: 50%;
+   	-webkit-border-radius: 50%;
+   	border-radius: 50%;
+	cursor: pointer;
+}
+
+.black
+{
+	height: 100%;
+	width: 100%;
+	background: black;
+   	-moz-border-radius: 50%;
+   	-webkit-border-radius: 50%;
+   	border-radius: 50%;
+	cursor: pointer;
+}
+
+.user-moves
+{
+	height: 100%;
+	width: 100%;
+	background: rgba(255,255,255,.3);
+   	-moz-border-radius: 50%;
+   	-webkit-border-radius: 50%;
+   	border-radius: 50%;
+	cursor: pointer;
+}
+
+.board-1-1{ position:absolute; top: 0%;    left: 0%;		width: 12.5%; height: 12.5%;}
+.board-1-2{ position:absolute; top: 0%;    left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-1-3{ position:absolute; top: 0%;    left: 25%;		width: 12.5%; height: 12.5%;}
+.board-1-4{ position:absolute; top: 0%;    left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-1-5{ position:absolute; top: 0%;    left: 50%;		width: 12.5%; height: 12.5%;}
+.board-1-6{ position:absolute; top: 0%;    left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-1-7{ position:absolute; top: 0%;    left: 75%;		width: 12.5%; height: 12.5%;}
+.board-1-8{ position:absolute; top: 0%;    left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-2-1{ position:absolute; top: 12.5%; left: 0%;		width: 12.5%; height: 12.5%;}
+.board-2-2{ position:absolute; top: 12.5%; left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-2-3{ position:absolute; top: 12.5%; left: 25%;		width: 12.5%; height: 12.5%;}
+.board-2-4{ position:absolute; top: 12.5%; left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-2-5{ position:absolute; top: 12.5%; left: 50%;		width: 12.5%; height: 12.5%;}
+.board-2-6{ position:absolute; top: 12.5%; left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-2-7{ position:absolute; top: 12.5%; left: 75%;		width: 12.5%; height: 12.5%;}
+.board-2-8{ position:absolute; top: 12.5%; left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-3-1{ position:absolute; top: 25%;   left: 0%;		width: 12.5%; height: 12.5%;}
+.board-3-2{ position:absolute; top: 25%;   left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-3-3{ position:absolute; top: 25%;   left: 25%;		width: 12.5%; height: 12.5%;}
+.board-3-4{ position:absolute; top: 25%;   left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-3-5{ position:absolute; top: 25%;   left: 50%;		width: 12.5%; height: 12.5%;}
+.board-3-6{ position:absolute; top: 25%;   left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-3-7{ position:absolute; top: 25%;   left: 75%;		width: 12.5%; height: 12.5%;}
+.board-3-8{ position:absolute; top: 25%;   left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-4-1{ position:absolute; top: 37.5%; left: 0%;		width: 12.5%; height: 12.5%;}
+.board-4-2{ position:absolute; top: 37.5%; left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-4-3{ position:absolute; top: 37.5%; left: 25%;		width: 12.5%; height: 12.5%;}
+.board-4-4{ position:absolute; top: 37.5%; left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-4-5{ position:absolute; top: 37.5%; left: 50%;		width: 12.5%; height: 12.5%;}
+.board-4-6{ position:absolute; top: 37.5%; left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-4-7{ position:absolute; top: 37.5%; left: 75%;		width: 12.5%; height: 12.5%;}
+.board-4-8{ position:absolute; top: 37.5%; left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-5-1{ position:absolute; top: 50%;   left: 0%;		width: 12.5%; height: 12.5%;}
+.board-5-2{ position:absolute; top: 50%;   left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-5-3{ position:absolute; top: 50%;   left: 25%;		width: 12.5%; height: 12.5%;}
+.board-5-4{ position:absolute; top: 50%;   left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-5-5{ position:absolute; top: 50%;   left: 50%;		width: 12.5%; height: 12.5%;}
+.board-5-6{ position:absolute; top: 50%;   left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-5-7{ position:absolute; top: 50%;   left: 75%;		width: 12.5%; height: 12.5%;}
+.board-5-8{ position:absolute; top: 50%;   left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-6-1{ position:absolute; top: 62.5%; left: 0%;		width: 12.5%; height: 12.5%;}
+.board-6-2{ position:absolute; top: 62.5%; left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-6-3{ position:absolute; top: 62.5%; left: 25%;		width: 12.5%; height: 12.5%;}
+.board-6-4{ position:absolute; top: 62.5%; left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-6-5{ position:absolute; top: 62.5%; left: 50%;		width: 12.5%; height: 12.5%;}
+.board-6-6{ position:absolute; top: 62.5%; left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-6-7{ position:absolute; top: 62.5%; left: 75%;		width: 12.5%; height: 12.5%;}
+.board-6-8{ position:absolute; top: 62.5%; left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-7-1{ position:absolute; top: 75%;   left: 0%;		width: 12.5%; height: 12.5%;}
+.board-7-2{ position:absolute; top: 75%;   left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-7-3{ position:absolute; top: 75%;   left: 25%;		width: 12.5%; height: 12.5%;}
+.board-7-4{ position:absolute; top: 75%;   left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-7-5{ position:absolute; top: 75%;   left: 50%;		width: 12.5%; height: 12.5%;}
+.board-7-6{ position:absolute; top: 75%;   left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-7-7{ position:absolute; top: 75%;   left: 75%;		width: 12.5%; height: 12.5%;}
+.board-7-8{ position:absolute; top: 75%;   left: 87.5%;		width: 12.5%; height: 12.5%;}
+.board-8-1{ position:absolute; top: 87.5%; left: 0%;		width: 12.5%; height: 12.5%;}
+.board-8-2{ position:absolute; top: 87.5%; left: 12.5%;		width: 12.5%; height: 12.5%;}
+.board-8-3{ position:absolute; top: 87.5%; left: 25%;		width: 12.5%; height: 12.5%;}
+.board-8-4{ position:absolute; top: 87.5%; left: 37.5%;		width: 12.5%; height: 12.5%;}
+.board-8-5{ position:absolute; top: 87.5%; left: 50%;		width: 12.5%; height: 12.5%;}
+.board-8-6{ position:absolute; top: 87.5%; left: 62.5%;		width: 12.5%; height: 12.5%;}
+.board-8-7{ position:absolute; top: 87.5%; left: 75%;		width: 12.5%; height: 12.5%;}
+.board-8-8{ position:absolute; top: 87.5%; left: 87.5%;		width: 12.5%; height: 12.5%;}
 
 
 
