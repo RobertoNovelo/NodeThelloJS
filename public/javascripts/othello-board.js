@@ -7,7 +7,7 @@ function OthelloBoard () {
 	{
 		if(boardArr.constructor == Array)
 		{
-			board = boardArr;
+			board = boardArr.slice();
 			return true;
 		}
 		else
@@ -18,7 +18,7 @@ function OthelloBoard () {
 
 	this.getBoard = function()
 	{
-		return board;
+		return board.slice();
 	};
 
 	this.getBoardFromHtml =	function(boardID)
@@ -40,7 +40,7 @@ function OthelloBoard () {
 			board[parseInt(position[0])][parseInt(position[1])] = $disks.eq(i).attr('class');
 		}
 
-		return board;
+		return board.slice();
 	};
 
 	this.setBoardInHtml = function (boardID,boardArr)
@@ -54,13 +54,18 @@ function OthelloBoard () {
 		{
 			position = $disks.eq(i).data("table-position").split("-");
 
-			$disks.eq(i).removeClass('black');
-			$disks.eq(i).removeClass('white');
-			$disks.eq(i).removeClass('empty');
-			$disks.eq(i).removeClass('user-moves');
+			if(null != boardArr[parseInt(position[0])]) 
+			{
+				if(null != boardArr[parseInt(position[0])][parseInt(position[1])])
+				{
+					$disks.eq(i).removeClass('black');
+					$disks.eq(i).removeClass('white');
+					$disks.eq(i).removeClass('empty');
+					$disks.eq(i).removeClass('user-moves');
 
-			$disks.eq(i).addClass(boardArr[parseInt(position[0])][parseInt(position[1])]);
-			board[parseInt(position[1])][parseInt(position[0])] = boardArr[parseInt(position[1])][parseInt(position[0])];
+					$disks.eq(i).addClass(boardArr[parseInt(position[0])][parseInt(position[1])]);
+				}
+			}
 		}
 
 	};

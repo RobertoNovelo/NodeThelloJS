@@ -1,5 +1,7 @@
 var othelloBoard = null;
-var othelloAI = null;
+var othelloAI1 = null;
+var othelloAI2 = null;
+var user = null;
 var player1 = null;
 var player2 = null;
 /*const*/ var AI = "AI";
@@ -13,54 +15,103 @@ var player2 = null;
 $(function()
 {
 
-	$(".user-moves").on('click', function()
-	{
-	});
+
 
 });
 
 $(document).ready(function() 
 {
 	othelloBoard = new OthelloBoard();
-	othelloBoard.setBoard(othelloBoard.getBoardFromHtml('board'));
+	othelloBoard.getBoardFromHtml('board');
+	othelloBoard.setBoard(othelloBoard.getBoard());
 	startGame();
 	
 });
 
 function startGame()
 {
-	player1 = new Player(AI,BLACK);
-	player2 = new Player(AI,WHITE);
 
-	othelloAI = new OthelloAI();
+	othelloAI1 = new OthelloAI();
+	othelloAI2 = new OthelloAI();
 
-	move(player1,player2);
-}
+	player1 = new Player(AI,BLACK,true,othelloAI1);
+	player2 = new Player(USER,WHITE,false,othelloAI2);
 
-function move(playerMoving,playerWaiting)
-{
-	if(AI == playerMoving.intel)
+	player1.playerAI.setPluginAIIntel(new OthelloPluginAINovelo);
+	player2.playerAI.setPluginAIIntel(new OthelloPluginAINovelo);
+
+	if(AI == player1.intel)
 	{
-		othelloAI.setNextMove(othelloBoard,playerMoving.color);
-		
-		if(AI == playerWaiting.intel)
+		move(player1,player2,null,null);
+	}
+	else
+	{
+		player1.playerAI.setUserPossibleMoves(othelloBoard,BLACK);
+
+		$(".user-moves").on('click', function()
 		{
-			setTimeout(function()
-			{
-				move(playerWaiting,playerMoving);
-			},1000);
-		}
-		else
-		{
-			othelloAI.setUserPossibleMoves(othelloBoard,playerWaiting.color);
-		}
+			$(".user-moves").addClass('empty');
+			$(".empty").removeClass('user-moves');
+			othelloBoard.setBoard(othelloBoard.getBoardFromHtml('board'));
+			var pos = $(this).data("table-position").split("-");
+			
+			move(player1,player2,pos[1],pos[0]);
+		});
 	}
 }
 
-function Player(userIntel, userColor)
+function move(playerMoving,playerWaiting,x,y)
 {
-	this.intel = userIntel;
-	this.color = userColor;
+	if(playerMoving.turn)
+	{
+		if(AI == playerMoving.intel)
+		{
+			playerMoving.playerAI.setNextMove(othelloBoard,playerMoving.color);
+			playerMoving.turn = false;
+			playerWaiting.turn = true;
+
+			if(AI == playerWaiting.intel)
+			{
+				setTimeout(function()
+				{
+					move(playerWaiting,playerMoving,null,null);
+				},200);
+			}
+			else
+			{
+				playerMoving.playerAI.setUserPossibleMoves(othelloBoard,playerWaiting.color);
+			}
+		}
+		else
+		{
+			playerMoving.playerAI.setUserDisks(x,y,playerMoving.color,othelloBoard.getBoardFromHtml('board'));
+			playerMoving.turn = false;
+			playerWaiting.turn = true;
+
+			setTimeout(function()
+			{
+				move(playerWaiting,playerMoving,null,null);
+			},200);
+		}
+
+		$(".user-moves").on('click', function()
+		{
+			$(".user-moves").addClass('empty');
+			$(".empty").removeClass('user-moves');
+			othelloBoard.setBoard(othelloBoard.getBoardFromHtml('board'));
+			var pos = $(this).data("table-position").split("-");
+			
+			move(player2,player1,pos[1],pos[0]);
+		});
+	}
+}
+
+function Player(playerIntel, playerColor, playerTurn, playerOthelloAI)
+{
+	this.intel = playerIntel;
+	this.color = playerColor;
+	this.turn = playerTurn;
+	this.playerAI =  playerOthelloAI;
 
 }
 
